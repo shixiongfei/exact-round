@@ -2,16 +2,27 @@
   "name": "exact-round",
   "version": "0.1.0",
   "description": "Exact number round function for JavaScript/TypeScript",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/index.d.ts",
+  "module": "./lib/esm/index.js",
   "files": [
     "lib/",
     "src/"
   ],
+  "exports": {
+    "import": {
+      "types": "./lib/esm/index.d.ts",
+      "default": "./lib/esm/index.js"
+    },
+    "require": {
+      "types": "./lib/cjs/index.d.ts",
+      "default": "./lib/cjs/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "tsc && node ./lib/index.test.js"
+    "build": "tsc && tsc -p tsconfig.esm.json && node ./postcompile.js",
+    "start": "tsc -w",
+    "test": "tsc && node ./lib/cjs/index.test.js"
   },
   "repository": {
     "type": "git",
