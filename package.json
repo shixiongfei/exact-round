@@ -1,6 +1,6 @@
 {
   "name": "exact-round",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Exact number round function for JavaScript/TypeScript",
   "main": "./lib/cjs/index.js",
   "types": "./lib/cjs/index.d.ts",
